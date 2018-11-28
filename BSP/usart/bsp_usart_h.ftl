@@ -44,12 +44,12 @@ typedef struct
     uint8_t *pRxBuf;            //recive buffer
     uint16_t usTxBufSize;       //send buffer size
     uint16_t usRxBufSize;       //recive buffer size
-    uint16_t usTxWrite;         //send buffer write index
-    uint16_t usTxRead;          //send buffer write index
+    uint16_t usTxWrite;         //send buffer write index   索引
+    uint16_t usTxRead;          //send buffer write index   索引
     uint16_t usTxCount;         //count wait for sneding
 
-    uint16_t usRxWrite;         //recive buffer write index
-    uint16_t usRxRead;          //recive buffer write index
+    uint16_t usRxWrite;         //recive buffer write index 索引
+    uint16_t usRxRead;          //recive buffer write index 索引
     uint16_t usRxCount;         //count wait for reciving
 
     void (*SendBefor)(void);    //
