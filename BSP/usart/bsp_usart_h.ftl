@@ -12,9 +12,9 @@
 
 typedef enum
 {
-    COM1 = 0;       //USART1 PA9 PA10
-    COM2 = 1;       //USART2 PA2 PA3
-    COM3 = 2;       //USART3 PB10 PB11
+    COM1 = 0,       //USART1 PA9 PA10
+    COM2 = 1,       //USART2 PA2 PA3
+    COM3 = 2,       //USART3 PB10 PB11
 }COM_PORT;
 
 #define USART1_FIFO_EN  0           //used to printf
@@ -59,11 +59,11 @@ typedef struct
 
 void bsp_InitUsart(void);
 void comSendBuf(COM_PORT port,uint8_t *buf,uint16_t len);
-void comSendChar(COM_PORT port,uint8_t char);
+void comSendChar(COM_PORT port,uint8_t ch);
 uint8_t comGetChar(COM_PORT port,uint8_t *pChar);
 
-void comClearTxFifo(COM_PORT port,);
-void comClearRxFifo(COM_PORT port,);
+void comClearTxFifo(COM_PORT port);
+void comClearRxFifo(COM_PORT port);
 
 void debug_printf(char *fmt,...);
 
