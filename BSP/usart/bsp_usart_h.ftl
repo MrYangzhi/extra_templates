@@ -17,9 +17,9 @@ typedef enum
     COM3 = 2,       //USART3 PB10 PB11
 }COM_PORT;
 
-#define USART1_FIFO_EN  1           //used to printf
-#define USART2_FIFO_EN  1           //
-#define USART3_FIFO_EN  1           //
+#define USART1_FIFO_EN  1           //used to printf 
+#define USART2_FIFO_EN  0           //默认不使用
+#define USART3_FIFO_EN  0           //默认不使用
 
 #if USART1_FIFO_EN == 1
     #define USART1_TX_BUF_SIZE   1*1024
