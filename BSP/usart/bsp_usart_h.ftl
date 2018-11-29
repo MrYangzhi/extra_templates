@@ -2,13 +2,13 @@
 #ifndef __bsp_usart_H
 #define __bsp_usart_H
 
-
 #include "bitband.h"
 #include "usart.h"
 #include <stdarg.h>
+#include <string.h>
 
 //printf_uart
-#define PRINTF_UART     huart1
+//#define PRINTF_UART     huart1
 
 typedef enum
 {
@@ -17,23 +17,23 @@ typedef enum
     COM3 = 2,       //USART3 PB10 PB11
 }COM_PORT;
 
-#define USART1_FIFO_EN  0           //used to printf
+#define USART1_FIFO_EN  1           //used to printf
 #define USART2_FIFO_EN  1           //
 #define USART3_FIFO_EN  1           //
 
 #if USART1_FIFO_EN == 1
-    #define UART1_TX_BUF_SIZE   1*1024
-    #define UART1_RX_BUF_SIZE   1*1024
+    #define USART1_TX_BUF_SIZE   1*1024
+    #define USART1_RX_BUF_SIZE   1*1024
 #endif
 
 #if USART2_FIFO_EN == 1
-    #define UART2_TX_BUF_SIZE   1*1024
-    #define UART2_RX_BUF_SIZE   1*1024
+    #define USART2_TX_BUF_SIZE   1*1024
+    #define USART2_RX_BUF_SIZE   1*1024
 #endif
 
 #if USART3_FIFO_EN == 1
-    #define UART3_TX_BUF_SIZE   1*1024
-    #define UART3_RX_BUF_SIZE   1*1024
+    #define USART3_TX_BUF_SIZE   1*1024
+    #define USART3_RX_BUF_SIZE   1*1024
 #endif
 
 typedef struct
@@ -54,7 +54,7 @@ typedef struct
 
     void (*SendBefor)(void);    //
     void (*SendOver)(void);     //
-    void (*ReciveNew)(void);    //
+    void (*ReciveNew)(uint8_t ch);    //
 }USART_T;
 
 void bsp_InitUsart(void);
@@ -67,23 +67,7 @@ void comClearRxFifo(COM_PORT port);
 
 void debug_printf(char *fmt,...);
 
-
-
-
 #endif
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
