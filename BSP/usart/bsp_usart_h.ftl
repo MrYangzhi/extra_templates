@@ -66,6 +66,8 @@ void comClearTxFifo(COM_PORT port);
 void comClearRxFifo(COM_PORT port);
 
 void debug_printf(char *fmt,...);
+void PrintfLOGO(void);
+
 
 #endif
 
